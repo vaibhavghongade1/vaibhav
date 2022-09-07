@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydepp
+  namespace: mytg
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pod
+  template:
+    metadata:
+      labels:
+        app: pod
+    spec:
+      containers:
+      - name: mycutomimage
+        image: vaibhav10/myrepo:tomcat
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: mmm  
+
