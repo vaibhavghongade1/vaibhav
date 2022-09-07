@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: pod18
+  namespace: mytg
+spec:
+  selector:
+    matchLabels:
+      name: flu
+  template:
+    metadata:
+      labels:
+        name: flu
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+          - containerPort: 80  

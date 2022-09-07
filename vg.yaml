@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+
+kind: ReplicaSet
+
+metadata:
+
+  name: frontend
+
+  namespace: mytg
+
+  labels:
+
+    tier: frontend
+
+spec:
+
+  replicas: 3
+
+  selector:
+
+    matchLabels:
+
+      tier: frontend
+
+  template:
+
+    metadata:
+
+      labels:
+
+        tier: frontend
+
+    spec:
+
+      containers:
+
+      - name: nago
+
+        image: nginx
+
+      - name: nagoo
+
+        image: redis
+

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydep
+  namespace: mytg
+  labels:
+    app: nadal
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: nadal
+  template:
+    metadata:
+      labels:
+        app: nadal
+    spec:
+      containers:
+      - name: container1
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80

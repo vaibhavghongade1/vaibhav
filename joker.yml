@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: podd
+  namespace: mytg
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      stage: app
+    template:
+      metadata:
+        labels:
+         stage: app
+    spec:
+      containers:
+      - name: nagoo
+        image: nginx
+      - name: njk
+        image: redis    

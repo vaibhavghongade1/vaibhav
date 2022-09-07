@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: mypod2
+  namespace: mytg
+  labels:
+    app: stage
+spec:
+  replicas: 3
+  selector:
+    matchLables:
+      app: stage
+  template:
+   metadata:
+     labels:
+        app: stage
+   spec:
+    containers:
+      - name: myc11
+        image: nginx
+      - name: myc22
+        image: redis  
+

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydep1
+  namespace: mytg
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mydep
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mydep
+    spec:
+      containers:
+      - image: nginx:1.15
+        name: nginx
+        resources: {}
+status: {}
